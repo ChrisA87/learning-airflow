@@ -42,6 +42,8 @@ asgiref==3.7.2
     # via
     #   apache-airflow
     #   apache-airflow-providers-http
+astroid==2.15.5
+    # via pylint
 async-timeout==4.0.2
     # via aiohttp
 attrs==23.1.0
@@ -97,7 +99,9 @@ deprecated==1.2.14
     #   apache-airflow
     #   limits
 dill==0.3.6
-    # via apache-airflow
+    # via
+    #   apache-airflow
+    #   pylint
 dnspython==2.3.0
     # via email-validator
 docutils==0.20.1
@@ -108,6 +112,8 @@ exceptiongroup==1.1.1
     # via
     #   anyio
     #   cattrs
+flake8==6.0.0
+    # via -r requirements.in
 flask==2.2.5
     # via
     #   apache-airflow
@@ -168,6 +174,8 @@ importlib-resources==5.12.0
     # via limits
 inflection==0.5.1
     # via connexion
+isort==5.12.0
+    # via pylint
 itsdangerous==2.1.2
     # via
     #   apache-airflow
@@ -186,7 +194,9 @@ jsonschema==4.17.3
     #   connexion
     #   flask-appbuilder
 lazy-object-proxy==1.9.0
-    # via apache-airflow
+    # via
+    #   apache-airflow
+    #   astroid
 limits==3.5.0
     # via flask-limiter
 linkify-it-py==2.0.2
@@ -223,6 +233,10 @@ marshmallow-oneofschema==3.0.1
     # via apache-airflow
 marshmallow-sqlalchemy==0.26.1
     # via flask-appbuilder
+mccabe==0.7.0
+    # via
+    #   flake8
+    #   pylint
 mdit-py-plugins==0.4.0
     # via apache-airflow
 mdurl==0.1.2
@@ -231,6 +245,8 @@ multidict==6.0.4
     # via
     #   aiohttp
     #   yarl
+numpy==1.25.0
+    # via pandas
 ordered-set==4.1.0
     # via flask-limiter
 packaging==23.1
@@ -239,22 +255,30 @@ packaging==23.1
     #   connexion
     #   limits
     #   marshmallow
+pandas==2.0.3
+    # via -r requirements.in
 pathspec==0.9.0
     # via apache-airflow
 pendulum==2.1.2
     # via apache-airflow
+platformdirs==3.8.0
+    # via pylint
 pluggy==1.2.0
     # via apache-airflow
 prison==0.2.1
     # via flask-appbuilder
 psutil==5.9.5
     # via apache-airflow
+pycodestyle==2.10.0
+    # via flake8
 pycparser==2.21
     # via cffi
 pydantic==2.0
     # via apache-airflow
 pydantic-core==2.0.1
     # via pydantic
+pyflakes==3.0.1
+    # via flake8
 pygments==2.15.1
     # via
     #   apache-airflow
@@ -264,6 +288,8 @@ pyjwt==2.7.0
     #   apache-airflow
     #   flask-appbuilder
     #   flask-jwt-extended
+pylint==2.17.4
+    # via -r requirements.in
 pyrsistent==0.19.3
     # via jsonschema
 python-daemon==3.0.1
@@ -273,6 +299,7 @@ python-dateutil==2.8.2
     #   apache-airflow
     #   croniter
     #   flask-appbuilder
+    #   pandas
     #   pendulum
 python-nvd3==0.15.0
     # via apache-airflow
@@ -281,7 +308,9 @@ python-slugify==8.0.1
     #   apache-airflow
     #   python-nvd3
 pytz==2023.3
-    # via flask-babel
+    # via
+    #   flask-babel
+    #   pandas
 pytzdata==2020.1
     # via pendulum
 pyyaml==6.0
@@ -340,16 +369,23 @@ termcolor==2.3.0
     # via apache-airflow
 text-unidecode==1.3
     # via python-slugify
+tomli==2.0.1
+    # via pylint
+tomlkit==0.11.8
+    # via pylint
 typing-extensions==4.7.0
     # via
     #   alembic
     #   apache-airflow
     #   asgiref
+    #   astroid
     #   cattrs
     #   flask-limiter
     #   limits
     #   pydantic
     #   pydantic-core
+tzdata==2023.3
+    # via pandas
 uc-micro-py==1.0.2
     # via linkify-it-py
 unicodecsv==0.14.1
@@ -364,7 +400,9 @@ werkzeug==2.2.3
     #   flask-jwt-extended
     #   flask-login
 wrapt==1.15.0
-    # via deprecated
+    # via
+    #   astroid
+    #   deprecated
 wtforms==3.0.1
     # via
     #   flask-appbuilder

@@ -1,1 +1,4 @@
 apache-airflow==2.6.2
+pandas==2.0.3
+flake8==6.0.0
+pylint==2.17.4
