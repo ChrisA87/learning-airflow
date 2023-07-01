@@ -10,7 +10,7 @@ from airflow.operators.python import PythonOperator
 
 
 dag = DAG(
-    dag_id='download_rocket_laucnhes',
+    dag_id='download_rocket_launches',
     start_date=pendulum.today('UTC').add(days=-14)
 )
 
