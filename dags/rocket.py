@@ -2,7 +2,6 @@ import json
 import pathlib
 import requests
 import requests.exceptions as requests_exceptions
-import airflow
 import pendulum
 from airflow import DAG
 from airflow.operators.bash import BashOperator
@@ -11,14 +10,17 @@ from airflow.operators.python import PythonOperator
 
 dag = DAG(
     dag_id='download_rocket_launches',
-    start_date=pendulum.today('UTC').add(days=-1)
+    start_date=pendulum.today('UTC').add(days=-1),
+    schedule_interval='@daily'
 )
 
 
 download_launches = BashOperator(
     task_id='download_launches',
-    bash_command='curl -o /tmp/launches.json -L "https://ll.thespacedevs.com/2.0.0/launch/upcoming"',
-    dag=dag 
+    bash_command=(
+        'curl -o /tmp/launches.json '
+        '-L "https://ll.thespacedevs.com/2.0.0/launch/upcoming"'),
+    dag=dag
 )
 
 
