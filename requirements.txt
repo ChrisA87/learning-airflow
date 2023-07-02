@@ -37,7 +37,9 @@ apache-airflow-providers-imap==3.2.2
 apache-airflow-providers-postgres==5.5.1
     # via -r requirements.in
 apache-airflow-providers-sqlite==3.4.2
-    # via apache-airflow
+    # via
+    #   -r requirements.in
+    #   apache-airflow
 apispec[yaml]==5.2.2
     # via flask-appbuilder
 argcomplete==3.1.1
