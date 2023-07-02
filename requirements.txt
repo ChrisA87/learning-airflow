@@ -21,10 +21,12 @@ apache-airflow==2.6.2
     #   apache-airflow-providers-ftp
     #   apache-airflow-providers-http
     #   apache-airflow-providers-imap
+    #   apache-airflow-providers-postgres
     #   apache-airflow-providers-sqlite
 apache-airflow-providers-common-sql==1.5.2
     # via
     #   apache-airflow
+    #   apache-airflow-providers-postgres
     #   apache-airflow-providers-sqlite
 apache-airflow-providers-ftp==3.4.2
     # via apache-airflow
@@ -32,6 +34,8 @@ apache-airflow-providers-http==4.4.2
     # via apache-airflow
 apache-airflow-providers-imap==3.2.2
     # via apache-airflow
+apache-airflow-providers-postgres==5.5.1
+    # via -r requirements.in
 apache-airflow-providers-sqlite==3.4.2
     # via apache-airflow
 apispec[yaml]==5.2.2
@@ -269,6 +273,8 @@ prison==0.2.1
     # via flask-appbuilder
 psutil==5.9.5
     # via apache-airflow
+psycopg2-binary==2.9.6
+    # via apache-airflow-providers-postgres
 pycodestyle==2.10.0
     # via flake8
 pycparser==2.21
