@@ -162,3 +162,5 @@ cython_debug/
 /images/**.jpeg
 /images/**.jpg
 /images/**.png
+
+/tmp
