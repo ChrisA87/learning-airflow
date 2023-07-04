@@ -8,9 +8,18 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 
+PAGE_NAMES = {
+    'Google',
+    'Amazon_(company)',
+    'Facebook',
+    'Apple_Inc.',
+    'Microsoft'
+}
+
+
 dag = DAG(
     dag_id='stock_wiki_pageviews',
-    start_date=pendulum.now('UTC'),
+    start_date=pendulum.now('UTC').add(hours=-4),
     schedule_interval='@hourly',
     template_searchpath='/tmp'
 )
@@ -73,13 +82,7 @@ process_data = PythonOperator(
     task_id='process_data',
     python_callable=_process_data,
     op_kwargs={
-        'pagenames': {
-            'Google',
-            'Amazon',
-            'Facebook',
-            'Apple',
-            'Microsoft'
-        },
+        'pagenames': PAGE_NAMES,
         'input_path': '/tmp/pageviews_{{ts_nodash}}.gz',
         'output_path': '/tmp/pageview_counts_{{ ts_nodash }}.json'
     }
