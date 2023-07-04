@@ -10,7 +10,7 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 dag = DAG(
     dag_id='stock_wiki_pageviews',
-    start_date=pendulum.today('UTC'),
+    start_date=pendulum.now('UTC'),
     schedule_interval='@hourly',
     template_searchpath='/tmp'
 )
@@ -63,7 +63,7 @@ get_data = PythonOperator(
     task_id='get_data',
     python_callable=_get_data,
     op_kwargs={
-        'output_path': '/tmp/pageviews.gz'
+        'output_path': '/tmp/pageviews_{{ ts_nodash }}.gz'
     },
     dag=dag
 )
@@ -80,7 +80,7 @@ process_data = PythonOperator(
             'Apple',
             'Microsoft'
         },
-        'input_path': '/tmp/pageviews.gz',
+        'input_path': '/tmp/pageviews_{{ts_nodash}}.gz',
         'output_path': '/tmp/pageview_counts_{{ ts_nodash }}.json'
     }
 )
