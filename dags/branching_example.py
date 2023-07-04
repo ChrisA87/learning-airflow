@@ -18,7 +18,7 @@ dag = DAG(
 
 def _fetch_weather():
     print('fetching weather data')
-    sleep(2)
+    sleep(1)
 
 
 def _clean_weather():
@@ -28,7 +28,7 @@ def _clean_weather():
 
 def _fetch_sales_old():
     print('fetching sales data')
-    sleep(5)
+    sleep(2)
 
 
 def _clean_sales_old():
@@ -43,7 +43,7 @@ def _fetch_sales_new():
 
 def _clean_sales_new():
     print('cleaning sales data - the new system')
-    sleep(3)
+    sleep(1)
 
 
 def _choose_sales_system(execution_date):
