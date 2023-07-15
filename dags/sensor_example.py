@@ -43,6 +43,7 @@ wait_for_client_1 = PythonSensor(
     task_id=f'wait_for_client_1',
     python_callable=_wait_for_dataset,
     op_kwargs={'client_id': 'client1'},
+    mode='reschedule',
     dag=dag
 )
 
@@ -51,6 +52,7 @@ wait_for_client_2 = PythonSensor(
     task_id=f'wait_for_client_2',
     python_callable=_wait_for_dataset,
     op_kwargs={'client_id': 'client2'},
+    mode='reschedule',
     dag=dag
 )
 
@@ -59,6 +61,7 @@ wait_for_client_3 = PythonSensor(
     task_id=f'wait_for_client_3',
     python_callable=_wait_for_dataset,
     op_kwargs={'client_id': 'client3'},
+    mode='reschedule',
     dag=dag
 )
 
