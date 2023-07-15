@@ -4,8 +4,17 @@
 #
 #    pip-compile
 #
+adal==1.2.7
+    # via
+    #   apache-airflow-providers-microsoft-azure
+    #   azure-kusto-data
+    #   msrestazure
+aiofiles==23.1.0
+    # via gcloud-aio-storage
 aiohttp==3.8.4
-    # via apache-airflow-providers-http
+    # via
+    #   apache-airflow-providers-http
+    #   gcloud-aio-auth
 aiosignal==1.3.1
     # via aiohttp
 alembic==1.11.1
@@ -17,23 +26,36 @@ anyio==3.7.0
 apache-airflow==2.6.2
     # via
     #   -r requirements.in
+    #   apache-airflow-providers-amazon
     #   apache-airflow-providers-common-sql
     #   apache-airflow-providers-ftp
+    #   apache-airflow-providers-google
     #   apache-airflow-providers-http
     #   apache-airflow-providers-imap
+    #   apache-airflow-providers-microsoft-azure
     #   apache-airflow-providers-postgres
     #   apache-airflow-providers-sqlite
+apache-airflow-providers-amazon==8.3.0
+    # via -r requirements.in
 apache-airflow-providers-common-sql==1.5.2
     # via
     #   apache-airflow
+    #   apache-airflow-providers-amazon
+    #   apache-airflow-providers-google
     #   apache-airflow-providers-postgres
     #   apache-airflow-providers-sqlite
 apache-airflow-providers-ftp==3.4.2
     # via apache-airflow
+apache-airflow-providers-google==10.3.0
+    # via -r requirements.in
 apache-airflow-providers-http==4.4.2
-    # via apache-airflow
+    # via
+    #   apache-airflow
+    #   apache-airflow-providers-amazon
 apache-airflow-providers-imap==3.2.2
     # via apache-airflow
+apache-airflow-providers-microsoft-azure==6.2.0
+    # via -r requirements.in
 apache-airflow-providers-postgres==5.5.1
     # via -r requirements.in
 apache-airflow-providers-sqlite==3.4.2
@@ -47,7 +69,11 @@ argcomplete==3.1.1
 asgiref==3.7.2
     # via
     #   apache-airflow
+    #   apache-airflow-providers-amazon
+    #   apache-airflow-providers-google
     #   apache-airflow-providers-http
+asn1crypto==1.5.1
+    # via scramp
 astroid==2.15.5
     # via pylint
 async-timeout==4.0.2
@@ -58,23 +84,115 @@ attrs==23.1.0
     #   apache-airflow
     #   cattrs
     #   jsonschema
+    #   looker-sdk
+azure-batch==14.0.0
+    # via apache-airflow-providers-microsoft-azure
+azure-common==1.1.28
+    # via
+    #   azure-batch
+    #   azure-keyvault-secrets
+    #   azure-mgmt-containerinstance
+    #   azure-mgmt-datafactory
+    #   azure-mgmt-datalake-store
+    #   azure-mgmt-resource
+    #   azure-storage-common
+    #   azure-storage-file
+    #   azure-synapse-spark
+azure-core==1.28.0
+    # via
+    #   azure-cosmos
+    #   azure-identity
+    #   azure-keyvault-secrets
+    #   azure-mgmt-core
+    #   azure-servicebus
+    #   azure-storage-blob
+    #   azure-storage-file-datalake
+    #   azure-synapse-spark
+    #   msrest
+azure-cosmos==4.4.0
+    # via apache-airflow-providers-microsoft-azure
+azure-datalake-store==0.0.53
+    # via apache-airflow-providers-microsoft-azure
+azure-identity==1.13.0
+    # via apache-airflow-providers-microsoft-azure
+azure-keyvault-secrets==4.7.0
+    # via apache-airflow-providers-microsoft-azure
+azure-kusto-data==0.0.45
+    # via apache-airflow-providers-microsoft-azure
+azure-mgmt-containerinstance==1.5.0
+    # via apache-airflow-providers-microsoft-azure
+azure-mgmt-core==1.4.0
+    # via
+    #   azure-mgmt-datafactory
+    #   azure-mgmt-resource
+azure-mgmt-datafactory==1.1.0
+    # via apache-airflow-providers-microsoft-azure
+azure-mgmt-datalake-nspkg==3.0.1
+    # via azure-mgmt-datalake-store
+azure-mgmt-datalake-store==0.5.0
+    # via apache-airflow-providers-microsoft-azure
+azure-mgmt-nspkg==3.0.2
+    # via azure-mgmt-datalake-nspkg
+azure-mgmt-resource==23.0.1
+    # via apache-airflow-providers-microsoft-azure
+azure-nspkg==3.0.2
+    # via azure-mgmt-nspkg
+azure-servicebus==7.11.1
+    # via apache-airflow-providers-microsoft-azure
+azure-storage-blob==12.17.0
+    # via
+    #   apache-airflow-providers-microsoft-azure
+    #   azure-storage-file-datalake
+azure-storage-common==2.1.0
+    # via
+    #   apache-airflow-providers-microsoft-azure
+    #   azure-storage-file
+azure-storage-file==2.1.0
+    # via apache-airflow-providers-microsoft-azure
+azure-storage-file-datalake==12.12.0
+    # via apache-airflow-providers-microsoft-azure
+azure-synapse-spark==0.7.0
+    # via apache-airflow-providers-microsoft-azure
 babel==2.12.1
     # via flask-babel
+backoff==2.2.1
+    # via gcloud-aio-auth
+beautifulsoup4==4.12.2
+    # via redshift-connector
 blinker==1.6.2
     # via apache-airflow
+boto3==1.28.3
+    # via
+    #   apache-airflow-providers-amazon
+    #   redshift-connector
+    #   watchtower
+botocore==1.31.3
+    # via
+    #   boto3
+    #   redshift-connector
+    #   s3transfer
 cachelib==0.9.0
     # via
     #   flask-caching
     #   flask-session
+cachetools==5.3.1
+    # via google-auth
 cattrs==23.1.2
-    # via apache-airflow
+    # via
+    #   apache-airflow
+    #   looker-sdk
 certifi==2023.5.7
     # via
     #   httpcore
     #   httpx
+    #   msrest
     #   requests
 cffi==1.15.1
-    # via cryptography
+    # via
+    #   azure-datalake-store
+    #   cryptography
+chardet==5.1.0
+    # via gcloud-aio-auth
 charset-normalizer==3.1.0
     # via
     #   aiohttp
@@ -99,7 +217,20 @@ cron-descriptor==1.4.0
 croniter==1.4.1
     # via apache-airflow
 cryptography==41.0.1
-    # via apache-airflow
+    # via
+    #   adal
+    #   apache-airflow
+    #   azure-identity
+    #   azure-storage-blob
+    #   azure-storage-common
+    #   gcloud-aio-auth
+    #   msal
+    #   pyjwt
+    #   pyopenssl
+db-dtypes==1.1.1
+    # via pandas-gbq
+decorator==5.1.1
+    # via jsonpath-ng
 deprecated==1.2.14
     # via
     #   apache-airflow
@@ -159,16 +290,236 @@ frozenlist==1.3.3
     # via
     #   aiohttp
     #   aiosignal
+gcloud-aio-auth==4.2.3
+    # via
+    #   apache-airflow-providers-google
+    #   gcloud-aio-bigquery
+    #   gcloud-aio-storage
+gcloud-aio-bigquery==6.3.0
+    # via apache-airflow-providers-google
+gcloud-aio-storage==8.2.0
+    # via apache-airflow-providers-google
+google-ads==21.2.0
+    # via apache-airflow-providers-google
+google-api-core[grpc]==2.11.0
+    # via
+    #   apache-airflow-providers-google
+    #   google-ads
+    #   google-api-python-client
+    #   google-cloud-aiplatform
+    #   google-cloud-appengine-logging
+    #   google-cloud-automl
+    #   google-cloud-bigquery
+    #   google-cloud-bigquery-datatransfer
+    #   google-cloud-bigquery-storage
+    #   google-cloud-bigtable
+    #   google-cloud-build
+    #   google-cloud-compute
+    #   google-cloud-container
+    #   google-cloud-core
+    #   google-cloud-datacatalog
+    #   google-cloud-dataflow-client
+    #   google-cloud-dataform
+    #   google-cloud-dataplex
+    #   google-cloud-dataproc
+    #   google-cloud-dataproc-metastore
+    #   google-cloud-dlp
+    #   google-cloud-kms
+    #   google-cloud-language
+    #   google-cloud-logging
+    #   google-cloud-memcache
+    #   google-cloud-monitoring
+    #   google-cloud-orchestration-airflow
+    #   google-cloud-os-login
+    #   google-cloud-pubsub
+    #   google-cloud-redis
+    #   google-cloud-resource-manager
+    #   google-cloud-secret-manager
+    #   google-cloud-spanner
+    #   google-cloud-speech
+    #   google-cloud-storage
+    #   google-cloud-tasks
+    #   google-cloud-texttospeech
+    #   google-cloud-translate
+    #   google-cloud-videointelligence
+    #   google-cloud-vision
+    #   google-cloud-workflows
+    #   pandas-gbq
+    #   sqlalchemy-bigquery
+google-api-python-client==2.93.0
+    # via apache-airflow-providers-google
+google-auth==2.22.0
+    # via
+    #   apache-airflow-providers-google
+    #   google-api-core
+    #   google-api-python-client
+    #   google-auth-httplib2
+    #   google-auth-oauthlib
+    #   google-cloud-core
+    #   google-cloud-storage
+    #   pandas-gbq
+    #   pydata-google-auth
+    #   sqlalchemy-bigquery
+google-auth-httplib2==0.1.0
+    # via
+    #   apache-airflow-providers-google
+    #   google-api-python-client
+google-auth-oauthlib==1.0.0
+    # via
+    #   google-ads
+    #   pandas-gbq
+    #   pydata-google-auth
+google-cloud-aiplatform==1.28.0
+    # via apache-airflow-providers-google
+google-cloud-appengine-logging==1.3.1
+    # via google-cloud-logging
+google-cloud-audit-log==0.2.5
+    # via google-cloud-logging
+google-cloud-automl==2.11.2
+    # via apache-airflow-providers-google
+google-cloud-bigquery==3.11.3
+    # via
+    #   google-cloud-aiplatform
+    #   pandas-gbq
+    #   sqlalchemy-bigquery
+google-cloud-bigquery-datatransfer==3.11.2
+    # via apache-airflow-providers-google
+google-cloud-bigquery-storage==2.22.0
+    # via pandas-gbq
+google-cloud-bigtable==2.19.0
+    # via apache-airflow-providers-google
+google-cloud-build==3.18.0
+    # via apache-airflow-providers-google
+google-cloud-compute==1.13.0
+    # via apache-airflow-providers-google
+google-cloud-container==2.26.0
+    # via apache-airflow-providers-google
+google-cloud-core==2.3.3
+    # via
+    #   google-cloud-bigquery
+    #   google-cloud-bigtable
+    #   google-cloud-logging
+    #   google-cloud-spanner
+    #   google-cloud-storage
+    #   google-cloud-translate
+google-cloud-datacatalog==3.14.0
+    # via apache-airflow-providers-google
+google-cloud-dataflow-client==0.8.4
+    # via apache-airflow-providers-google
+google-cloud-dataform==0.5.2
+    # via apache-airflow-providers-google
+google-cloud-dataplex==1.5.1
+    # via apache-airflow-providers-google
+google-cloud-dataproc==5.4.2
+    # via apache-airflow-providers-google
+google-cloud-dataproc-metastore==1.12.0
+    # via apache-airflow-providers-google
+google-cloud-dlp==3.12.2
+    # via apache-airflow-providers-google
+google-cloud-kms==2.18.0
+    # via apache-airflow-providers-google
+google-cloud-language==2.10.1
+    # via apache-airflow-providers-google
+google-cloud-logging==3.6.0
+    # via apache-airflow-providers-google
+google-cloud-memcache==1.7.2
+    # via apache-airflow-providers-google
+google-cloud-monitoring==2.15.1
+    # via apache-airflow-providers-google
+google-cloud-orchestration-airflow==1.9.1
+    # via apache-airflow-providers-google
+google-cloud-os-login==2.10.0
+    # via apache-airflow-providers-google
+google-cloud-pubsub==2.18.0
+    # via apache-airflow-providers-google
+google-cloud-redis==2.13.1
+    # via apache-airflow-providers-google
+google-cloud-resource-manager==1.10.2
+    # via google-cloud-aiplatform
+google-cloud-secret-manager==2.16.2
+    # via apache-airflow-providers-google
+google-cloud-spanner==3.36.0
+    # via apache-airflow-providers-google
+google-cloud-speech==2.21.0
+    # via apache-airflow-providers-google
+google-cloud-storage==2.10.0
+    # via
+    #   apache-airflow-providers-google
+    #   google-cloud-aiplatform
+google-cloud-tasks==2.13.2
+    # via apache-airflow-providers-google
+google-cloud-texttospeech==2.14.1
+    # via apache-airflow-providers-google
+google-cloud-translate==3.11.2
+    # via apache-airflow-providers-google
+google-cloud-videointelligence==2.11.3
+    # via apache-airflow-providers-google
+google-cloud-vision==3.4.4
+    # via apache-airflow-providers-google
+google-cloud-workflows==1.10.2
+    # via apache-airflow-providers-google
+google-crc32c==1.5.0
+    # via google-resumable-media
+google-resumable-media==2.5.0
+    # via
+    #   google-cloud-bigquery
+    #   google-cloud-storage
+googleapis-common-protos[grpc]==1.59.1
+    # via
+    #   google-ads
+    #   google-api-core
+    #   google-cloud-audit-log
+    #   grpc-google-iam-v1
+    #   grpcio-status
 graphviz==0.20.1
     # via apache-airflow
+grpc-google-iam-v1==0.12.6
+    # via
+    #   google-cloud-bigtable
+    #   google-cloud-build
+    #   google-cloud-datacatalog
+    #   google-cloud-dataform
+    #   google-cloud-dataplex
+    #   google-cloud-dataproc
+    #   google-cloud-dataproc-metastore
+    #   google-cloud-kms
+    #   google-cloud-logging
+    #   google-cloud-pubsub
+    #   google-cloud-resource-manager
+    #   google-cloud-secret-manager
+    #   google-cloud-spanner
+    #   google-cloud-tasks
+grpcio==1.56.0
+    # via
+    #   google-ads
+    #   google-api-core
+    #   google-cloud-bigquery
+    #   google-cloud-pubsub
+    #   googleapis-common-protos
+    #   grpc-google-iam-v1
+    #   grpcio-gcp
+    #   grpcio-status
+grpcio-gcp==0.2.2
+    # via apache-airflow-providers-google
+grpcio-status==1.56.0
+    # via
+    #   google-ads
+    #   google-api-core
+    #   google-cloud-pubsub
 gunicorn==20.1.0
     # via apache-airflow
 h11==0.14.0
     # via httpcore
 httpcore==0.17.2
     # via httpx
+httplib2==0.22.0
+    # via
+    #   google-api-python-client
+    #   google-auth-httplib2
 httpx==0.24.1
-    # via apache-airflow
+    # via
+    #   apache-airflow
+    #   apache-airflow-providers-google
 idna==3.4
     # via
     #   anyio
@@ -180,6 +531,14 @@ importlib-resources==5.12.0
     # via limits
 inflection==0.5.1
     # via connexion
+isodate==0.6.1
+    # via
+    #   azure-keyvault-secrets
+    #   azure-mgmt-resource
+    #   azure-servicebus
+    #   azure-storage-blob
+    #   azure-storage-file-datalake
+    #   msrest
 isort==5.12.0
     # via pylint
 itsdangerous==2.1.2
@@ -194,6 +553,14 @@ jinja2==3.1.2
     #   flask
     #   flask-babel
     #   python-nvd3
+jmespath==1.0.1
+    # via
+    #   boto3
+    #   botocore
+json-merge-patch==0.2
+    # via apache-airflow-providers-google
+jsonpath-ng==1.5.3
+    # via apache-airflow-providers-amazon
 jsonschema==4.17.3
     # via
     #   apache-airflow
@@ -211,6 +578,10 @@ lockfile==0.12.2
     # via
     #   apache-airflow
     #   python-daemon
+looker-sdk==23.10.0
+    # via apache-airflow-providers-google
+lxml==4.9.3
+    # via redshift-connector
 mako==1.2.4
     # via alembic
 markdown==3.4.3
@@ -247,22 +618,67 @@ mdit-py-plugins==0.4.0
     # via apache-airflow
 mdurl==0.1.2
     # via markdown-it-py
+msal==1.22.0
+    # via
+    #   azure-datalake-store
+    #   azure-identity
+    #   msal-extensions
+msal-extensions==1.0.0
+    # via azure-identity
+msrest==0.7.1
+    # via
+    #   azure-mgmt-containerinstance
+    #   azure-mgmt-datafactory
+    #   azure-synapse-spark
+    #   msrestazure
+msrestazure==0.6.4
+    # via
+    #   azure-batch
+    #   azure-kusto-data
+    #   azure-mgmt-containerinstance
+    #   azure-mgmt-datalake-store
 multidict==6.0.4
     # via
     #   aiohttp
     #   yarl
+mypy-boto3-appflow==1.28.0
+    # via apache-airflow-providers-amazon
+mypy-boto3-rds==1.28.0
+    # via apache-airflow-providers-amazon
+mypy-boto3-redshift-data==1.28.0
+    # via apache-airflow-providers-amazon
+mypy-boto3-s3==1.28.3.post2
+    # via apache-airflow-providers-amazon
 numpy==1.25.0
-    # via pandas
+    # via
+    #   db-dtypes
+    #   pandas
+    #   pandas-gbq
+    #   pyarrow
+oauthlib==3.2.2
+    # via requests-oauthlib
 ordered-set==4.1.0
     # via flask-limiter
 packaging==23.1
     # via
     #   apache-airflow
     #   connexion
+    #   db-dtypes
+    #   google-cloud-aiplatform
+    #   google-cloud-bigquery
     #   limits
     #   marshmallow
+    #   redshift-connector
+    #   sqlalchemy-bigquery
+    #   sqlalchemy-redshift
 pandas==2.0.3
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   apache-airflow-providers-google
+    #   db-dtypes
+    #   pandas-gbq
+pandas-gbq==0.19.2
+    # via apache-airflow-providers-google
 pathspec==0.9.0
     # via apache-airflow
 pendulum==2.1.2
@@ -271,12 +687,113 @@ platformdirs==3.8.0
     # via pylint
 pluggy==1.2.0
     # via apache-airflow
+ply==3.11
+    # via jsonpath-ng
+portalocker==2.7.0
+    # via msal-extensions
 prison==0.2.1
     # via flask-appbuilder
+proto-plus==1.22.3
+    # via
+    #   apache-airflow-providers-google
+    #   google-ads
+    #   google-cloud-aiplatform
+    #   google-cloud-appengine-logging
+    #   google-cloud-automl
+    #   google-cloud-bigquery
+    #   google-cloud-bigquery-datatransfer
+    #   google-cloud-bigquery-storage
+    #   google-cloud-bigtable
+    #   google-cloud-build
+    #   google-cloud-compute
+    #   google-cloud-container
+    #   google-cloud-datacatalog
+    #   google-cloud-dataflow-client
+    #   google-cloud-dataform
+    #   google-cloud-dataplex
+    #   google-cloud-dataproc
+    #   google-cloud-dataproc-metastore
+    #   google-cloud-dlp
+    #   google-cloud-kms
+    #   google-cloud-language
+    #   google-cloud-logging
+    #   google-cloud-memcache
+    #   google-cloud-monitoring
+    #   google-cloud-orchestration-airflow
+    #   google-cloud-os-login
+    #   google-cloud-pubsub
+    #   google-cloud-redis
+    #   google-cloud-resource-manager
+    #   google-cloud-secret-manager
+    #   google-cloud-spanner
+    #   google-cloud-speech
+    #   google-cloud-tasks
+    #   google-cloud-texttospeech
+    #   google-cloud-translate
+    #   google-cloud-videointelligence
+    #   google-cloud-vision
+    #   google-cloud-workflows
+protobuf==4.23.4
+    # via
+    #   google-ads
+    #   google-api-core
+    #   google-cloud-aiplatform
+    #   google-cloud-appengine-logging
+    #   google-cloud-audit-log
+    #   google-cloud-automl
+    #   google-cloud-bigquery
+    #   google-cloud-bigquery-datatransfer
+    #   google-cloud-bigquery-storage
+    #   google-cloud-bigtable
+    #   google-cloud-build
+    #   google-cloud-compute
+    #   google-cloud-container
+    #   google-cloud-datacatalog
+    #   google-cloud-dataflow-client
+    #   google-cloud-dataform
+    #   google-cloud-dataplex
+    #   google-cloud-dataproc
+    #   google-cloud-dataproc-metastore
+    #   google-cloud-dlp
+    #   google-cloud-kms
+    #   google-cloud-language
+    #   google-cloud-logging
+    #   google-cloud-memcache
+    #   google-cloud-monitoring
+    #   google-cloud-orchestration-airflow
+    #   google-cloud-os-login
+    #   google-cloud-pubsub
+    #   google-cloud-redis
+    #   google-cloud-resource-manager
+    #   google-cloud-secret-manager
+    #   google-cloud-spanner
+    #   google-cloud-speech
+    #   google-cloud-tasks
+    #   google-cloud-texttospeech
+    #   google-cloud-translate
+    #   google-cloud-videointelligence
+    #   google-cloud-vision
+    #   google-cloud-workflows
+    #   googleapis-common-protos
+    #   grpc-google-iam-v1
+    #   grpcio-status
+    #   proto-plus
 psutil==5.9.5
     # via apache-airflow
 psycopg2-binary==2.9.6
     # via apache-airflow-providers-postgres
+pyarrow==12.0.1
+    # via
+    #   db-dtypes
+    #   pandas-gbq
+pyasn1==0.4.8
+    # via
+    #   pyasn1-modules
+    #   rsa
+pyasn1-modules==0.2.8
+    # via
+    #   gcloud-aio-storage
+    #   google-auth
 pycodestyle==2.10.0
     # via flake8
 pycparser==2.21
@@ -285,28 +802,42 @@ pydantic==2.0
     # via apache-airflow
 pydantic-core==2.0.1
     # via pydantic
+pydata-google-auth==1.8.1
+    # via pandas-gbq
 pyflakes==3.0.1
     # via flake8
 pygments==2.15.1
     # via
     #   apache-airflow
     #   rich
-pyjwt==2.7.0
+pyjwt[crypto]==2.7.0
     # via
+    #   adal
     #   apache-airflow
     #   flask-appbuilder
     #   flask-jwt-extended
+    #   gcloud-aio-auth
+    #   msal
 pylint==2.17.4
     # via -r requirements.in
+pyopenssl==23.2.0
+    # via apache-airflow-providers-google
+pyparsing==3.1.0
+    # via httplib2
 pyrsistent==0.19.3
     # via jsonschema
 python-daemon==3.0.1
     # via apache-airflow
 python-dateutil==2.8.2
     # via
+    #   adal
     #   apache-airflow
+    #   azure-kusto-data
+    #   azure-storage-common
+    #   botocore
     #   croniter
     #   flask-appbuilder
+    #   google-cloud-bigquery
     #   pandas
     #   pendulum
 python-nvd3==0.15.0
@@ -319,6 +850,7 @@ pytz==2023.3
     # via
     #   flask-babel
     #   pandas
+    #   redshift-connector
 pytzdata==2020.1
     # via pendulum
 pyyaml==6.0
@@ -326,11 +858,31 @@ pyyaml==6.0
     #   apispec
     #   clickclick
     #   connexion
+    #   google-ads
+redshift-connector==2.0.913
+    # via apache-airflow-providers-amazon
 requests==2.31.0
     # via
+    #   adal
     #   apache-airflow-providers-http
+    #   azure-core
+    #   azure-datalake-store
+    #   azure-kusto-data
+    #   azure-storage-common
     #   connexion
+    #   google-api-core
+    #   google-cloud-bigquery
+    #   google-cloud-storage
+    #   looker-sdk
+    #   msal
+    #   msrest
+    #   redshift-connector
+    #   requests-oauthlib
     #   requests-toolbelt
+requests-oauthlib==1.3.1
+    # via
+    #   google-auth-oauthlib
+    #   msrest
 requests-toolbelt==1.0.0
     # via apache-airflow-providers-http
 rfc3339-validator==0.1.4
@@ -342,10 +894,27 @@ rich==13.4.2
     #   rich-argparse
 rich-argparse==1.1.1
     # via apache-airflow
+rsa==4.9
+    # via
+    #   gcloud-aio-storage
+    #   google-auth
+s3transfer==0.6.1
+    # via boto3
+scramp==1.4.4
+    # via redshift-connector
 setproctitle==1.3.2
     # via apache-airflow
+shapely==1.8.5.post1
+    # via google-cloud-aiplatform
 six==1.16.0
     # via
+    #   azure-core
+    #   azure-identity
+    #   google-auth
+    #   google-auth-httplib2
+    #   isodate
+    #   jsonpath-ng
+    #   msrestazure
     #   prison
     #   python-dateutil
     #   rfc3339-validator
@@ -354,6 +923,8 @@ sniffio==1.3.0
     #   anyio
     #   httpcore
     #   httpx
+soupsieve==2.4.1
+    # via beautifulsoup4
 sqlalchemy==1.4.48
     # via
     #   alembic
@@ -361,14 +932,22 @@ sqlalchemy==1.4.48
     #   flask-appbuilder
     #   flask-sqlalchemy
     #   marshmallow-sqlalchemy
+    #   sqlalchemy-bigquery
     #   sqlalchemy-jsonfield
+    #   sqlalchemy-redshift
     #   sqlalchemy-utils
+sqlalchemy-bigquery==1.7.0
+    # via apache-airflow-providers-google
 sqlalchemy-jsonfield==1.0.1.post0
     # via apache-airflow
+sqlalchemy-redshift==0.8.14
+    # via apache-airflow-providers-amazon
 sqlalchemy-utils==0.41.1
     # via flask-appbuilder
 sqlparse==0.4.4
-    # via apache-airflow-providers-common-sql
+    # via
+    #   apache-airflow-providers-common-sql
+    #   google-cloud-spanner
 tabulate==0.9.0
     # via apache-airflow
 tenacity==8.2.2
@@ -387,9 +966,15 @@ typing-extensions==4.7.0
     #   apache-airflow
     #   asgiref
     #   astroid
+    #   azure-core
+    #   azure-keyvault-secrets
+    #   azure-servicebus
+    #   azure-storage-blob
+    #   azure-storage-file-datalake
     #   cattrs
     #   flask-limiter
     #   limits
+    #   looker-sdk
     #   pydantic
     #   pydantic-core
 tzdata==2023.3
@@ -398,8 +983,15 @@ uc-micro-py==1.0.2
     # via linkify-it-py
 unicodecsv==0.14.1
     # via apache-airflow
-urllib3==2.0.3
-    # via requests
+uritemplate==4.1.1
+    # via google-api-python-client
+urllib3==1.26.16
+    # via
+    #   botocore
+    #   google-auth
+    #   requests
+watchtower==2.0.1
+    # via apache-airflow-providers-amazon
 werkzeug==2.2.3
     # via
     #   apache-airflow
